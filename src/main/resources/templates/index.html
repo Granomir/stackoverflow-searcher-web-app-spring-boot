@@ -19,6 +19,7 @@
 </div>
 
 <div th:if="${not #lists.isEmpty(questions)}">
+    <br/>
     <table border="1">
         <tr>
             <th>Date</th>
@@ -37,6 +38,7 @@
      style="color:red;font-style:italic;">
     ...
 </div>
+
 <div th:if="${errorNoResult}" th:utext="${errorNoResult}"
      style="color:red;font-style:italic;">
     ...
