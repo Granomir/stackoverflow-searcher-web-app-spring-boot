@@ -28,7 +28,7 @@
         </tr>
         <tr th:each="question : ${questions}">
             <td th:utext="${question.date}">...</td>
-            <td th:utext="${question.title}">...</td>
+            <td><a th:href="@{${question.reference}}" th:utext="${question.title}">...</a></td>
             <td th:utext="${question.author}">...</td>
         </tr>
     </table>
