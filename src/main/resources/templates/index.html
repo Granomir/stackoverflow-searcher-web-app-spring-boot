@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>StackOverflow Searcher</title>
+</head>
+<body>
+<h1>Type your question in this form:</h1>
+<!--здесь в переданный объект queryForm записывается запрос из формы и по нажатию кнопки осуществляется обновление странциы index-->
+<div>
+    <form th:action="@{/index}"
+          th:object="${queryForm}" method="POST">
+        <!--в поле query записывается значение из этого инпута-->
+        <input type="text" th:field="*{query}"/>
+        <br/>
+        <br/>
+        <input type="submit" value="Push here to search!"/>
+    </form>
+</div>
+
+<div th:if="${not #lists.isEmpty(questions)}">
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Question Title</th>
+            <th>Author</th>
+        </tr>
+        <tr th:each="question : ${questions}">
+            <td th:utext="${question.date}">...</td>
+            <td th:utext="${question.title}">...</td>
+            <td th:utext="${question.author}">...</td>
+        </tr>
+    </table>
+</div>
+
+<div th:if="${errorEmptyQuery}" th:utext="${errorEmptyQuery}"
+     style="color:red;font-style:italic;">
+    ...
+</div>
+<div th:if="${errorNoResult}" th:utext="${errorNoResult}"
+     style="color:red;font-style:italic;">
+    ...
+</div>
+</body>
+</html>
