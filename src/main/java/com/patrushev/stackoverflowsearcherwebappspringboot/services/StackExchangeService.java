@@ -1,5 +1,7 @@
-package com.patrushev.stackoverflowsearcherwebappspringboot.model;
+package com.patrushev.stackoverflowsearcherwebappspringboot.services;
 
+import com.patrushev.stackoverflowsearcherwebappspringboot.utils.ParameterStringBuilder;
+import com.patrushev.stackoverflowsearcherwebappspringboot.model.QuestionResult;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -15,15 +17,15 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.zip.GZIPInputStream;
 
-public class SOAPIConnector {
-    private static SOAPIConnector ourInstance = new SOAPIConnector();
+public class StackExchangeService {
+    private static StackExchangeService ourInstance = new StackExchangeService();
 
 
-    public static SOAPIConnector getInstance() {
+    public static StackExchangeService getInstance() {
         return ourInstance;
     }
 
-    private SOAPIConnector() {
+    private StackExchangeService() {
     }
 
     public List<QuestionResult> getQuestionsList(String question) throws IOException {

@@ -2,7 +2,7 @@ package com.patrushev.stackoverflowsearcherwebappspringboot.controller;
 
 import com.patrushev.stackoverflowsearcherwebappspringboot.form.QueryForm;
 import com.patrushev.stackoverflowsearcherwebappspringboot.model.QuestionResult;
-import com.patrushev.stackoverflowsearcherwebappspringboot.model.SOAPIConnector;
+import com.patrushev.stackoverflowsearcherwebappspringboot.services.StackExchangeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -33,7 +33,7 @@ public class MainController {
         //проверка на пустой запрос
         if (query != null && query.length() > 0) {
             //запрос в API и создание коллекции из ответов
-            questions = SOAPIConnector.getInstance().getQuestionsList(query);
+            questions = StackExchangeService.getInstance().getQuestionsList(query);
             //проверка пустой коллекции ответов
             if (questions == null || questions.isEmpty()) {
                 model.addAttribute("errorNoResult", "Nothing found by the request\"" + query + "\"");

@@ -1,4 +1,4 @@
-package com.patrushev.stackoverflowsearcherwebappspringboot.model;
+package com.patrushev.stackoverflowsearcherwebappspringboot.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
