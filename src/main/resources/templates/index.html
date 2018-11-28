@@ -25,9 +25,10 @@
             <th>Date</th>
             <th>Question Title</th>
             <th>Author</th>
+            <th>Is answered?</th>
         </tr>
-        <tr th:each="question : ${questions}">
-            <td th:utext="${question.date}">...</td>
+        <tr th:each="question : ${questions}" th:attr="bgcolor=${question.solved == true} ? 'green' : 'red'">
+            <td th:utext="${question.date}" >...</td>
             <td><a th:href="@{${question.reference}}" th:utext="${question.title}">...</a></td>
             <td th:utext="${question.author}">...</td>
         </tr>

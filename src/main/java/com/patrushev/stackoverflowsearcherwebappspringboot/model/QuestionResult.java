@@ -7,17 +7,17 @@ public class QuestionResult {
     private String title;
     private String author;
     private String reference;
-    private boolean isSolved;
+    private boolean solved;
 
     public QuestionResult() {
     }
 
-    public QuestionResult(String date, String title, String author, String reference, boolean isSolved) {
+    public QuestionResult(String date, String title, String author, String reference, boolean Solved) {
         this.date = date;
         this.title = title;
         this.author = author;
         this.reference = reference;
-        this.isSolved = isSolved;
+        this.solved = Solved;
     }
 
     public String getDate() {
@@ -53,11 +53,11 @@ public class QuestionResult {
     }
 
     public boolean isSolved() {
-        return isSolved;
+        return solved;
     }
 
     public void setSolved(boolean solved) {
-        isSolved = solved;
+        this.solved = solved;
     }
 
     @Override
@@ -65,7 +65,7 @@ public class QuestionResult {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         QuestionResult that = (QuestionResult) o;
-        return isSolved == that.isSolved &&
+        return solved == that.solved &&
                 Objects.equals(date, that.date) &&
                 Objects.equals(title, that.title) &&
                 Objects.equals(author, that.author) &&
@@ -74,7 +74,7 @@ public class QuestionResult {
 
     @Override
     public int hashCode() {
-        return Objects.hash(date, title, author, reference, isSolved);
+        return Objects.hash(date, title, author, reference, solved);
     }
 
     @Override
@@ -84,7 +84,7 @@ public class QuestionResult {
                 ", title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", reference='" + reference + '\'' +
-                ", isSolved=" + isSolved +
+                ", solved=" + solved +
                 '}';
     }
 }
