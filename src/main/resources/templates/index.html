@@ -3,45 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <title>StackOverflow Searcher</title>
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/w3.css}" />
 </head>
-<body>
-<h1>Type your question in this form:</h1>
+<body class="w3-light-grey">
+<!--<h1>Type your question in this form:</h1>-->
 <!--здесь в переданный объект queryForm записывается запрос из формы и по нажатию кнопки осуществляется обновление странциы index-->
 <div>
     <form th:action="@{/index}"
-          th:object="${queryForm}" method="POST">
+          th:object="${queryForm}" method="POST" class="w3-container" >
+        <div class="w3-center w3-padding-24">
+            <p class="w3-xlarge">Type your question in this form:</p>
+        </div>
         <!--в поле query записывается значение из этого инпута-->
-        <input type="text" th:field="*{query}"/>
-        <br/>
-        <br/>
-        <input type="submit" value="Push here to search!"/>
+        <div class="w3-center"><input type="text" th:field="*{query}" style="width:400px" /></div>
+        <div class="w3-bar w3-padding-large w3-margin-bottom w3-center"><input type="submit" value="Push here to search!" class="w3-btn w3-hover-green w3-round-large w3-pale-green w3-border"/></div>
     </form>
 </div>
 
 <div th:if="${not #lists.isEmpty(questions)}">
     <br/>
-    <table border="1">
-        <tr>
-            <th>Date</th>
-            <th>Question Title</th>
-            <th>Author</th>
-            <th>Is answered?</th>
+    <table class="w3-table w3-hoverable">
+        <tr class="w3-blue-gray">
+            <th class="w3-border">Date</th>
+            <th class="w3-border">Question Title</th>
+            <th class="w3-border">Author</th>
         </tr>
-        <tr th:each="question : ${questions}" th:attr="bgcolor=${question.solved == true} ? 'green' : 'red'">
-            <td th:utext="${question.date}" >...</td>
-            <td><a th:href="@{${question.reference}}" th:utext="${question.title}">...</a></td>
-            <td th:utext="${question.author}">...</td>
+        <tr th:each="question : ${questions}" th:attr="class=${question.solved == true} ? 'w3-light-green' : 'w3-orange'">
+            <td th:utext="${question.date}" class="w3-border">...</td>
+            <td class="w3-border"><a th:href="@{${question.reference}}" th:utext="${question.title}">...</a></td>
+            <td th:utext="${question.author}" class="w3-border">...</td>
         </tr>
     </table>
 </div>
 
 <div th:if="${errorEmptyQuery}" th:utext="${errorEmptyQuery}"
-     style="color:red;font-style:italic;">
+     class="w3-center w3-text-red">
     ...
 </div>
 
 <div th:if="${errorNoResult}" th:utext="${errorNoResult}"
-     style="color:red;font-style:italic;">
+     class="w3-center w3-text-red">
     ...
 </div>
 </body>
