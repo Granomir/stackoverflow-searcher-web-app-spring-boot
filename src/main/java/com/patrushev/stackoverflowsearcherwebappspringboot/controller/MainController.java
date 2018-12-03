@@ -36,7 +36,7 @@ public class MainController {
             questions = StackExchangeService.getInstance().getQuestionsList(query);
             //проверка пустой коллекции ответов
             if (questions == null || questions.isEmpty()) {
-                model.addAttribute("errorNoResult", "Nothing found by the request\"" + query + "\"");
+                model.addAttribute("errorNoResult", "Nothing found by the request \"" + query + "\"");
                 return "index";
             }
             model.addAttribute("questions", questions);
