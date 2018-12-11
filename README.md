@@ -1,11 +1,11 @@
 # stackoverflow-searcher-web-app-spring-boot
 
+Used technologies - Spring Boot, Thymeleaf, HTML, CSS, Maven
+
 Second version.
 Simple Java web application with a form that allows a user to enter a search string, queries Stack Exchange API to find questions 
 with titles containing that string, and displays the results in a tabular format showing the date of the question, its title and 
 who posted it. Application uses a diferent colors to differentiate answered questions from unanswered.
-
-Used technologies - Spring Boot, Thymeleaf, HTML, CSS, Maven
 
 There are 2 ways to start the application - from IDEA or from JAR.
 
