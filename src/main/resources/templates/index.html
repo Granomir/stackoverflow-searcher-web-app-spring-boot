@@ -3,20 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>StackOverflow Searcher</title>
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/w3.css}" />
 </head>
 <body class="w3-light-grey">
-<!--<h1>Type your question in this form:</h1>-->
-<!--здесь в переданный объект queryForm записывается запрос из формы и по нажатию кнопки осуществляется обновление странциы index-->
 <div>
     <form th:action="@{/index}"
           th:object="${queryForm}" method="POST" class="w3-container" >
         <div class="w3-center w3-padding-24">
             <p class="w3-xlarge">Type your question in this form:</p>
         </div>
-        <!--в поле query записывается значение из этого инпута-->
         <div class="w3-center"><input type="text" th:field="*{query}" style="width:400px" /></div>
         <div class="w3-bar w3-padding-large w3-margin-bottom w3-center"><input type="submit" value="Push here to search!" class="w3-btn w3-hover-green w3-round-large w3-pale-green w3-border"/></div>
     </form>
